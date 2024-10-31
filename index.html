@@ -7,27 +7,34 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Noto Sans', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            background-color: #fafafa;
+            color: #333;
         }
         header, section, footer {
             padding: 20px;
             max-width: 800px;
             margin: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         header {
-            background-color: #f4f4f4;
+            background-color: #4CAF50;
+            color: white;
             text-align: center;
             padding: 40px;
+            border-radius: 10px 10px 0 0;
         }
         h1 {
-            font-size: 2em;
+            font-size: 2.5em;
         }
         h2 {
-            font-size: 1.5em;
+            font-size: 1.8em;
             margin-top: 20px;
         }
         p, ul {
@@ -44,7 +51,7 @@
             border-radius: 5px;
         }
         a {
-            color: #333;
+            color: #4CAF50;
             text-decoration: none;
         }
         a:hover {
@@ -55,20 +62,53 @@
             font-size: 0.9em;
             color: #777;
             margin-top: 40px;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        img {
+            width: 150px;
+            border-radius: 50%;
+            display: block;
+            margin: 20px auto;
         }
         @media (max-width: 600px) {
             header, section, footer {
                 padding: 15px;
             }
             h1 {
-                font-size: 1.5em;
+                font-size: 1.8em;
             }
             h2 {
-                font-size: 1.2em;
+                font-size: 1.5em;
             }
             p, ul {
                 font-size: 0.9em;
             }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        header, section, footer {
+            animation: fadeIn 2s;
         }
     </style>
 </head>
@@ -78,13 +118,14 @@
     </header>
     <section class="about">
         <h2>소개</h2>
+        <img src="profile.jpg" alt="Profile Image">
         <p>저는 주식회사 엘씨나인을 운영중이며 20년안에 매출 5조 회사로 키울겁니다. 먹고사는 문제에 관심이 있습니다. 일을 존나 잘합니다.</p>
     </section>
     
     <section class="contact">
         <h2>연락처</h2>
         <p>이메일: <a href="mailto:sungsil.kim@lcnine.kr">sungsil.kim@lcnine.kr</a></p>
-                <p>쇼핑몰: <a href="https://www.almondyoung.com" target="_blank">www.almondyoung.com</a></p>
+        <p>쇼핑몰: <a href="https://www.almondyoung.com" target="_blank" class="button">쇼핑몰 방문하기</a></p>
     </section>
     <footer>
         <p>&copy; 2024 김성실. 모든 권리 보유.</p>

@@ -29,26 +29,33 @@
             text-align: center;
             width: 300px;
         }
-        /* CSS 선택자 수정 */
+        /* 버튼 스타일 수정 */
         .button {
             display: block;
-            margin: 15px 0;
+            width: 100%;
+            margin: 10px 0;
             padding: 10px;
             background-color: #000;
             color: #fff;
             text-decoration: none;
+            border: none;
             border-radius: 5px;
             transition: background-color 0.3s;
-            cursor: pointer; /* 버튼처럼 보이도록 커서 변경 */
+            cursor: pointer;
+            font-size: 14px;
+            box-sizing: border-box;
         }
         .button:hover {
             background-color: #444;
         }
-        /* 타이머 텍스트 색상 수정 */
+        /* 타이머 스타일 수정 */
         #timer {
-            font-size: 1.2em;
-            margin-top: 15px;
-            color: #333;
+            font-size: 14px;
+            margin-top: 10px;
+            color: #fff;
+            background-color: #000;
+            padding: 10px;
+            border-radius: 5px;
         }
     </style>
     <script>
@@ -59,7 +66,7 @@
 
             function updateTimer() {
                 const now = new Date();
-                const timeRemaining = deathDate.getTime() - now.getTime(); // 시간 계산 정확도 개선
+                const timeRemaining = deathDate.getTime() - now.getTime();
 
                 if (timeRemaining > 0) {
                     const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
@@ -82,10 +89,11 @@
         <!-- 보안 개선: rel 속성 추가 -->
         <a href="https://vanilla-cold-15a.notion.site/" target="_blank" rel="noopener noreferrer" class="button">회사 홈페이지 방문하기</a>
         <a href="https://www.almondyoung.com" target="_blank" rel="noopener noreferrer" class="button">쇼핑몰 방문하기</a>
-        <!-- 접근성 개선: div를 button으로 변경 -->
+        <!-- 접근성 개선: 버튼 크기 통일 -->
         <button class="button" type="button" disabled>MBTI: ISTJ</button>
         <a href="http://qr.kakao.com/talk/5jL5bEHRjhJlwTb7nDpja5X2xYE-" target="_blank" rel="noopener noreferrer" class="button">카카오톡 연결하기</a>
         <button class="button" type="button" disabled>이메일: sungsil.kim@lcnine.kr</button>
+        <!-- 타이머 스타일 수정 -->
         <div class="button" id="timer">남은 수명: </div>
     </div>
 </body>

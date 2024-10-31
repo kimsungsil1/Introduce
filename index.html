@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>연락처</title>
+    <!-- 메타 데이터 추가 -->
+    <meta name="description" content="연락처 페이지">
+    <meta property="og:title" content="연락처">
+    <meta property="og:description" content="연락처 페이지">
+    <meta property="og:type" content="website">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,7 +29,8 @@
             text-align: center;
             width: 300px;
         }
-        a.button {
+        /* CSS 선택자 수정 */
+        .button {
             display: block;
             margin: 15px 0;
             padding: 10px;
@@ -33,14 +39,16 @@
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s;
+            cursor: pointer; /* 버튼처럼 보이도록 커서 변경 */
         }
-        a.button:hover {
+        .button:hover {
             background-color: #444;
         }
+        /* 타이머 텍스트 색상 수정 */
         #timer {
             font-size: 1.2em;
             margin-top: 15px;
-            color: #fff;
+            color: #333;
         }
     </style>
     <script>
@@ -51,7 +59,7 @@
 
             function updateTimer() {
                 const now = new Date();
-                const timeRemaining = deathDate - now;
+                const timeRemaining = deathDate.getTime() - now.getTime(); // 시간 계산 정확도 개선
 
                 if (timeRemaining > 0) {
                     const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
@@ -71,11 +79,13 @@
 </head>
 <body>
     <div class="contact-container">
-        <a href="https://vanilla-cold-15a.notion.site/" target="_blank" class="button">회사 홈페이지 방문하기</a>
-        <a href="https://www.almondyoung.com" target="_blank" class="button">쇼핑몰 방문하기</a>
-        <div class="button">MBTI: ISTJ</div>
-        <a href="http://qr.kakao.com/talk/5jL5bEHRjhJlwTb7nDpja5X2xYE-" target="_blank" class="button">카카오톡 연결하기</a>
-        <div class="button">이메일: sungsil.kim@lcnine.kr</div>
+        <!-- 보안 개선: rel 속성 추가 -->
+        <a href="https://vanilla-cold-15a.notion.site/" target="_blank" rel="noopener noreferrer" class="button">회사 홈페이지 방문하기</a>
+        <a href="https://www.almondyoung.com" target="_blank" rel="noopener noreferrer" class="button">쇼핑몰 방문하기</a>
+        <!-- 접근성 개선: div를 button으로 변경 -->
+        <button class="button" type="button" disabled>MBTI: ISTJ</button>
+        <a href="http://qr.kakao.com/talk/5jL5bEHRjhJlwTb7nDpja5X2xYE-" target="_blank" rel="noopener noreferrer" class="button">카카오톡 연결하기</a>
+        <button class="button" type="button" disabled>이메일: sungsil.kim@lcnine.kr</button>
         <div class="button" id="timer">남은 수명: </div>
     </div>
 </body>

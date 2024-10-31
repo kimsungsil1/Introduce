@@ -37,13 +37,44 @@
         a.button:hover {
             background-color: #444;
         }
+        #timer {
+            font-size: 1.2em;
+            margin-top: 15px;
+            color: #000;
+        }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const averageLifeExpectancy = 79; // 한국 남성 평균 수명
+            const birthDate = new Date(1989, 9, 2); // 생년월일 (1989년 10월 2일)
+            const deathDate = new Date(birthDate.getFullYear() + averageLifeExpectancy, birthDate.getMonth(), birthDate.getDate());
+
+            function updateTimer() {
+                const now = new Date();
+                const timeRemaining = deathDate - now;
+
+                if (timeRemaining > 0) {
+                    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+                    document.getElementById("timer").textContent = `남은 수명: ${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+                } else {
+                    document.getElementById("timer").textContent = "수명이 종료되었습니다.";
+                }
+            }
+
+            setInterval(updateTimer, 1000);
+            updateTimer();
+        });
+    </script>
 </head>
 <body>
     <div class="contact-container">
         <h2>연락처</h2>
         <a href="http://qr.kakao.com/talk/5jL5bEHRjhJlwTb7nDpja5X2xYE-" target="_blank" class="button">카카오톡 연결하기</a>
         <p>이메일: <a href="mailto:sungsil.kim@lcnine.kr">sungsil.kim@lcnine.kr</a></p>
+        <div id="timer"></div>
     </div>
 </body>
 </html>
